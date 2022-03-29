@@ -57,3 +57,5 @@ Answering "Yes" means allowing the right to make the Trained Model itself availa
 - [ ] Internal use
 - [ ] Output commercialization
 - [ ] Model commercialization
+
+Reference : https://www.montrealdatalicense.com/en
