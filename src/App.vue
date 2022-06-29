@@ -5,6 +5,7 @@
     <div>
       <HomePage/>
       <Content/>
+      <!-- <Test/> -->
     </div>
   </div>
 </template>
