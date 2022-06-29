@@ -20,6 +20,7 @@ declare module 'vue' {
     ElSteps: typeof import('element-plus/es')['ElSteps']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     HomePage: typeof import('./components/HomePage.vue')['default']
+    Test: typeof import('./components/test.vue')['default']
   }
 }
 
