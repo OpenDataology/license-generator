@@ -19,3 +19,29 @@ export const getLicenseDataAll = (data = {}) => {
         },
     })
 }
+/**
+ * API 2.1 List the filtered dataset licenses
+ * @param {String} url 
+ * @param {Object} parms 
+ * @returns 
+ */
+ export const getLicenseCondition = (data = {}) => {
+    var obj = {};
+    console.log(data.conditions);
+    console.log("size;",data.conditions.size);
+    if (data.conditions.size != undefined && data.conditions.size != 0){
+        for (let [key, value] of data.conditions) {
+            obj[key] = value;
+        }
+    }
+    return axios.request({
+        url: "/licenses_sc",
+        method: "post",
+        params: {
+            pageSize: data.pageSize,
+            pageNum: data.pageNum,
+            token: Token,
+        },
+        data: obj
+    })
+}
