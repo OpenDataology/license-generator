@@ -22,6 +22,7 @@ onMounted(() => {
 const sendMitt = ()=>{
   emiter.emit('getCondition',conditions);
 }
+
 const goToUpload = ()=>{
   let url = "http://www.opendataology.com:30800/#/uploadLicense";
   let data = "?data=";
@@ -30,8 +31,6 @@ const goToUpload = ()=>{
   });
   window.location.href= url+data;
 }
-
-
 
 const checkoutValueForTest = ref(false)
 
@@ -312,6 +311,7 @@ const boxOnChange=(value:any)=>{
   margin-left: 20px;
   color: #070707;
 }
+
 @media screen and (min-width:1200px) {
   .c-w{
     width: 1200px;
