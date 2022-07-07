@@ -7,8 +7,6 @@ import VueAxios from "vue-axios";
 import emiter from "~/utils/bus";
 
 const count = ref(0);
-const input = ref("element-plus");
-const curDate = ref("");
 
 interface Question {
   question:string,
@@ -16,15 +14,21 @@ interface Question {
   indicators:string,
   value:boolean
 }
-// const my:Array<Question> = [{"q","d",ture},{}]
 
 // Life cycles
 onMounted(() => {
-  // getData();
 });
 
 const sendMitt = ()=>{
   emiter.emit('getCondition',conditions);
+}
+const goToUpload = ()=>{
+  let url = "http://www.opendataology.com:30800/#/uploadLicense";
+  let data = "?data=";
+  questions.value.forEach(function(val,index){
+    data += val.value?"1":"0";
+  });
+  window.location.href= url+data;
 }
 
 
@@ -126,10 +130,6 @@ let result_keys = [
   "Model commercialization",
 ];
 
-const toast = () => {
-  ElMessage.success("Hello");
-};
-
 const step = ref(0);  // current step
 const chapter = ref(0); // current chapter
 const question_visibility = ref(step.value < 8)
@@ -168,7 +168,6 @@ const before = () => {
 };
 // Next
 const next = () => {
-  console.log(count.value);
   if (chapter.value++ > 2) chapter.value = 0;
 };
 // modify condition
@@ -249,8 +248,8 @@ const boxOnChange=(value:any)=>{
       >
         <el-col :span="5" :xs="20">
           <div class="c">
-            <h4>Checkbox Format</h4>
-            <h6>For data itself</h6>
+            <h4>For data itself</h4>
+            <!-- <h6>For data itself</h6> -->
 
             <el-checkbox
                 v-for="(value, index) in questions.slice(0, 3)"
@@ -266,8 +265,8 @@ const boxOnChange=(value:any)=>{
         </el-col>
         <el-col :span="3" :xs="20">
           <div class="c">
-            <h4>Checkbox Format</h4>
-            <h6>For Model</h6>
+            <h4>For Model</h4>
+            <!-- <h6>For Model</h6> -->
                 <el-checkbox
                   v-for="(value, index) in questions.slice(3, 9)"
                     v-model="value.value"
@@ -287,31 +286,13 @@ const boxOnChange=(value:any)=>{
           class="row-bg screening-progress"
           justify="center"
       >
-        <el-col :span="7">
+        <el-col :span="7" :xs="20" class="el-col el-col-auto">
           <el-button @click="restart">Restart</el-button>
-          <!-- <el-button @click="chapter++">Finish</el-button> -->
+          <span class="go-to-upload" @click="goToUpload">Generate a new license >> </span>
         </el-col>
       </el-row>
     </div>
-
-
-    <!-- <div>
-      <h6 style="text-align: center">
-        Number of all Licenses: {{ origin_license_data }}
-      </h6>
-      <el-empty
-          description="No Data ..."
-      >
-      </el-empty>
-
-    </div> -->
   </div>
-  <!-- <div>
-    <h4>测试区域</h4>
-    <p :key="item" v-for="item in origin_license_data">{{ item }}</p>
-    <el-checkbox size="large" v-model="checkoutValueForTest">Checkout</el-checkbox>
-    <span>:{{ checkoutValueForTest }}</span>
-  </div> -->
 </template>
 
 <style>
@@ -325,6 +306,11 @@ const boxOnChange=(value:any)=>{
 .questions-space{
   min-height:200px;
   padding: 0 5%;
+}
+.go-to-upload{
+  font-size: 12px;
+  margin-left: 20px;
+  color: #070707;
 }
 @media screen and (min-width:1200px) {
   .c-w{
