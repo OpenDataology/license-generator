@@ -9,6 +9,10 @@ let responseData = reactive({
   data:[],
 })
 
+const rowNumber = computed(()=>{
+  return Math.ceil(responseData.data.length/3)
+})
+
 // let license_data:any[];
 let license_data = ref([])
 
@@ -50,6 +54,10 @@ async function getFilteredLicense(conditions:any) {
   license_data.value = response.data;
 }
 
+const test = () => {
+  console.log("license_data:",license_data.value.length/6   )
+  console.log("response",toRaw(responseData.data));
+};
 </script>
 
 <template>
@@ -82,6 +90,7 @@ async function getFilteredLicense(conditions:any) {
           </el-card>
         </div>
       </div>
+
     </div>
   </div>
 </template>
