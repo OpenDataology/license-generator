@@ -13,6 +13,7 @@ pnpm-lock.yaml
 
 # config
 config/https.env.js
+src/config/https.env.ts
 
 # IDE
 .github

@@ -5,6 +5,13 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 
 import emiter from "~/utils/bus";
+import {Portal_Frontend_Upload_URL} from "~/config/https.env";
+// import {Portal_Frontend_Upload_URL} from "../../config/https.env.js"
+
+// const config:any = require('../../config/https.env.js')
+// config.Portal_Frontend_Upload_URL
+
+
 
 const count = ref(0);
 
@@ -24,7 +31,7 @@ const sendMitt = ()=>{
 }
 
 const goToUpload = ()=>{
-  let url = "http://www.opendataology.com:30800/#/uploadLicense";
+  let url = Portal_Frontend_Upload_URL;
   let data = "?data=";
   questions.value.forEach(function(val,index){
     data += val.value?"1":"0";
