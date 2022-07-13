@@ -15,7 +15,7 @@ const rowNumber = computed(()=>{
 // let license_data:any[];
 let license_data = ref([])
 
-// License 指标
+// License indicators
 let license_indicators = ref([
   "data_access_rights",
   "data_modification_rights",
@@ -27,11 +27,12 @@ let license_indicators = ref([
 let conditions:any = ref({});
 // Life cycles
 onMounted(() => {
+  // emiter receive function
   emiter.on("getCondition",(res:any) =>{
     conditions.value = res;
     getFilteredLicense(conditions);
   })
-  // getLicense();
+  // initial data
   getFilteredLicense(conditions);
 });
 onBeforeMount(()=>{
@@ -40,12 +41,6 @@ onBeforeMount(()=>{
 
 let temp_license_data:any;
 const origin_license_data: Ref<any[]> = ref(temp_license_data);
-
-computed(()=>{
-  contentRowNumber: ()=>{
-    return Math.ceil(responseData.data.length/4);
-  }
-})
 
 async function getFilteredLicense(conditions:any) {
   const data = {
@@ -56,9 +51,6 @@ async function getFilteredLicense(conditions:any) {
   const response = await getLicenseCondition(data);
   responseData.data = response.data;
   license_data.value = response.data;
-
-  // console.log("response",toRaw(responseData.data));
-  // console.log("response.length:",toRaw(responseData.data.length));
 }
 
 const test = () => {
@@ -70,9 +62,8 @@ const test = () => {
 <template>
   <div class="container parent">
     <div>
-      <h6 @click="test" style="text-align: center">
+      <h6 style="text-align: center">
         Number of all Licenses: {{ responseData.data.length }} 
-        <!-- Number of all Licenses: {{ license_data.length }}  -->
       </h6>
       <el-empty v-if="responseData.data.length == 0"
           description="No Data ..."

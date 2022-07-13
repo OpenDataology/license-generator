@@ -27,8 +27,6 @@ export const getLicenseDataAll = (data = {}) => {
  */
  export const getLicenseCondition = (data = {}) => {
     var obj = {};
-    console.log(data.conditions);
-    console.log("size;",data.conditions.size);
     if (data.conditions.size != undefined && data.conditions.size != 0){
         for (let [key, value] of data.conditions) {
             obj[key] = value;
