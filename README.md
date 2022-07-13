@@ -17,7 +17,7 @@ Answering "Yes" gives the right to create Labelled Data, meaning the creation of
 
 ## 1.3 Can users create a Representation based on the Data?
 
-A Representation means a Model existing in a different form, format or model that mimics the effects of the Data, but that does not contain any individual data points or allow third parties to infer individual data points with currently existing technology.
+A Representation means a Model existing in a different form, format or model that mimics the effects of the Data, but that does not contain any individual data points or allow third parties to infer personal data points with currently existing technology.
 
 ## **2. For Model**
 
