@@ -8,7 +8,7 @@ import { Token } from "./https.env"
  * @param {Object} parms 
  * @returns 
  */
-export const getLicenseDataAll = (data = {}) => {
+export const getLicenseDataAll = (data:any = {}) => {
     return axios.request({
         url: "/data-license",
         method: "get",
@@ -25,8 +25,8 @@ export const getLicenseDataAll = (data = {}) => {
  * @param {Object} parms 
  * @returns 
  */
- export const getLicenseCondition = (data = {}) => {
-    var obj = {};
+ export const getLicenseCondition = (data:any = {}) => {
+    var obj:any = {};
     if (data.conditions.size != undefined && data.conditions.size != 0){
         for (let [key, value] of data.conditions) {
             obj[key] = value;

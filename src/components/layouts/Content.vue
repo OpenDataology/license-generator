@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {ref, onMounted,onBeforeMount, Ref, reactive, toRefs, computed} from "vue";
-import {getLicenseDataAll,getLicenseCondition} from "../../../config/api.env"
+import {getLicenseCondition} from "~/config/api.env"
+import {Portal_Frontend_Detail_URL} from "~/config/https.env.js"
 import emiter from "../../utils/bus"
 import {toRaw} from '@vue/reactivity'
 
@@ -66,10 +67,10 @@ async function getFilteredLicense(conditions:any) {
           <el-card>
               <!-- operate -->
               <div slot="header" class="clearfix" style="height:30px">
-                  <a :href="'http://www.opendataology.com:30800/#/licenseInfo?id=' + item['id']" target="_blank" style="color:#003261">
+                  <a :href="Portal_Frontend_Detail_URL +'?id=' + item['id']" target="_blank" style="color:#003261">
                       {{item["license_name"]}}
                   </a>
-                  <el-button style="float:right;padding-left: 3px 0;" type="text">Select</el-button>
+                  <!-- <el-button style="float:right;padding-left: 3px 0;" type="text">Select</el-button> -->
               </div>
               <el-divider />
               <!-- Indicators -->
