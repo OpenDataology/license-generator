@@ -1,4 +1,4 @@
-FROM beevelop/nodejs-python:v2021.06.1 as builder
+FROM node:lts-alpine as builder
 
 WORKDIR /vue-ui
 
