@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: license-generator-deployment
+spec:
+  selector:
+    matchLabels:
+      app: license-generator
+  template:
+    metadata:
+      labels:
+        app: license-generator
+    spec:
+      containers:
+        - image: robekeane/license-generator:0.1
+          name: license-generator-con
