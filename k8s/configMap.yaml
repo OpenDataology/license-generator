@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  addr: ":9000"
+  dsn: "root:dataset@tcp(10.233.49.193:3306)/datalicense?charset=utf8mb4&parseTime=True&loc=Local"
+  max_idle_conn: "100"
