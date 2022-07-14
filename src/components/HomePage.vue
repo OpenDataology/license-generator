@@ -74,7 +74,7 @@ const my_questions: Question[] = [
   {
     question: "1.3 Can users create a Representation based on the Data?",
     description:
-        "A Representation means a Model existing in a different form, format or model that mimics the effects of the Data, but that does not contain any individual data points or allow third parties to infer individual data points with currently existing technology.",
+        "A Representation means a Model existing in a different form, format or model that mimics the effects of the Data, but that does not contain any personal data points or allow third parties to infer individual data points with currently existing technology.",
     indicators: "data_represent_rights",
     value: false,
   },
