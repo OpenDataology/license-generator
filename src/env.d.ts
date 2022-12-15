@@ -1,3 +1,14 @@
+/*
+env.d.ts
+
+Copyright (c) 2022 The OpenDataology Authors 
+All rights reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+
+
+
 /// <reference types="vite/client" />
 
 declare module "*.vue" {
