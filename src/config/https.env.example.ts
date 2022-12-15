@@ -1,3 +1,14 @@
+/*
+https.env.example.ts
+
+Copyright (c) 2022 The OpenDataology Authors 
+All rights reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+
+
+
 import axios from "axios";
 axios.defaults.baseURL = "http://127.0.0.1:30900/api/v1";// TODO:metadata-api example:http://127.0.0.1:9123/api/v1
 axios.interceptors.request.use(

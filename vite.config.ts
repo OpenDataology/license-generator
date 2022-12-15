@@ -1,3 +1,14 @@
+/*
+vite.config.ts
+
+Copyright (c) 2022 The OpenDataology Authors 
+All rights reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+
+
+
 import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
